@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Student Information Management System</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Student Information</h1>
+        <a href="http://127.0.0.1:8000/student/info/add">Add Student</a>
+        <table border = '1'>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Student Name</th>
+                    <th>Education</th>
+                    <th>University</th>
+                    <th>Grades</th>
+                    <th>Contract Status</th>
+                    <th>Contract Date</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for obj in data_list%}
+                <tr>
+                    <td>{{ obj.id }}</td>
+                    <td>{{ obj.studentName }}</td>
+                    <td>{{ obj.education }}</td>
+                    <td>{{ obj.university }}</td>
+                    <td>{{ obj.grades }}</td>
+                    <td>{{ obj.contractStatus }}</td>
+                    <td>{{ obj.contractTime|date:'Y-m-d'}}</td>
+                    <td><a href="http://127.0.0.1:8000/student/info/delete/?nid={{ obj.id }}">Delete</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+
+        
+    </body>
+</html>
+
