@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
-from student.models import Student, Employee
+from student.models import Student
+from employee.models import Employee
 
 # Create your views here.
 def studentInfo(request):
@@ -32,3 +33,4 @@ def studentInfoDel(request):
     nid = request.GET.get('nid')
     Student.objects.filter(id=nid).delete()
     return redirect("http://127.0.0.1:8000/student/info/")
+
